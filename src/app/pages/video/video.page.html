@@ -1,0 +1,29 @@
+<app-header titulo="Video"></app-header>
+
+
+<ion-content color="dark">
+<div >
+  <ion-grid>
+    <ion-row style="justify-content: center;">      
+      <ion-col size-md="12" size-xs="12" size-sm="12" size-lg="7" > 
+        <video #myVideo controls width="100%" poster="{{ urlimagen }}/{{ video.imagen1 }}">
+          <source src="{{ urlvideo }}{{ video.video }}" type="video/mp4">
+          <!-- Puedes agregar más formatos de video aquí si es necesario -->
+          Tu navegador no admite la reproducción de videos.
+        </video>
+        <ion-item lines="none" color="dark">
+          <ion-label class="slot"><ion-badge color="danger">{{video.visitas}}</ion-badge></ion-label> 
+          <ion-label  slot="end"><ion-badge color="danger">{{video.tags}}</ion-badge></ion-label>     
+        </ion-item>
+        
+        <h3> {{ video.titulo }}</h3>
+        <p>{{ video.descripcion }}.</p>        
+      </ion-col>
+      <ion-col size-md="0" size-xs="0" size-sm="0" size-lg="3">
+        <app-aleatorio></app-aleatorio>
+      </ion-col>
+    </ion-row>    
+  </ion-grid>
+  
+</div>
+</ion-content>

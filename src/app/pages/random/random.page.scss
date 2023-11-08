@@ -1,0 +1,49 @@
+.custom-text {
+    text-align: justify;
+  }
+
+  .clicable-element {
+    cursor: pointer;
+}
+
+.custom-title {
+  margin-bottom: 0px; /* Ajusta el espacio entre el título y los elementos debajo según tus preferencias */
+}
+
+.custom-top {
+  margin-top:-11px; /* Ajusta el espacio entre el título y los elementos debajo según tus preferencias */
+}
+
+.border-radius {
+  border-radius:15px;
+}
+
+.fixed-column {
+  position: sticky;
+  top: 0;
+  height: 100vh; /* Opcional, ajusta la altura según tus necesidades */
+  overflow-y: auto; /* Opcional, agrega desplazamiento vertical si es necesario */
+}
+
+.swiper-slide-custom {
+  display: flex; /* Hace que los elementos sean flexibles para centrar vertical y horizontalmente */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  width: 100%; /* Opcional: Ajusta el ancho al 100% para que ocupen todo el contenedor */
+  height: 100%; /* Opcional: Ajusta la altura al 100% para que ocupen todo el contenedor */
+}
+
+.swiper-slide-custom img {
+  max-width: 100%; /* Ajusta el tamaño máximo de la imagen al 100% del contenedor */
+  max-height: 100%; /* Ajusta el tamaño máximo de la imagen al 100% del contenedor */
+}
+
+.ver-mas-button {
+  color: white; /* Color de texto blanco */
+  font-size: 18px; /* Tamaño de fuente deseado */
+  cursor: pointer; /* Cambia el cursor a una mano (pointer) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Altura deseada, ajusta según sea necesario */
+}

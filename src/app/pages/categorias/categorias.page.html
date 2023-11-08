@@ -1,0 +1,40 @@
+<app-header titulo="Random"></app-header>
+
+<ion-content [fullscreen]="true" color="dark">
+
+  <ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-hide-lg-down fixed-column" size-lg="1.5" >
+        <app-menuizquierda ></app-menuizquierda>
+      </ion-col>
+      <ion-col size-lg="10.5" size-md="12" size-xs="12" size-sm="12">
+        <ion-row >
+          <ion-col class="clicable-element" size-md="4" size-xs="12" size-sm="4" size-lg="2.4" *ngFor="let video of videos" (click)="verVideo(video)">
+            <ion-item lines="none" class="border-radius" >
+              <ion-img [src]="urlImagen + video.imagen1"></ion-img>
+            </ion-item>
+            <ion-item lines="none"  color="dark">
+              <h6>1Titulo de coches y algo mas para todos</h6>
+            </ion-item>
+            <ion-item lines="none" class="custom-top" color="dark">
+              <ion-label><p>{{ video.visitas }} K - {{ video.tags }}</p></ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+
+  <!-- Infini scroll-->
+  <ion-infinite-scroll  [disabled] = "!habilitado"
+                        threshold="150px" 
+                        (ionInfinite)="siguientes($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+    loadingText="Mas videos...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,10 @@
+<ion-col class="clicable-element" size-md="0" size-xs="0" size-sm="0" size-lg="12" *ngFor="let video of videos" (click)="verVideo(video)">
+  <ion-item color="dark">
+    <ion-img slot="start" src="{{ urlImagen }}{{ video.imagen1 }}" style="width: 140px; height: auto; object-fit: cover;"></ion-img>
+    <ion-label style="display: flex; flex-direction: column;">
+      <p style="margin: 0; white-space: normal;">{{ video.titulo }}</p>      
+    </ion-label>
+  </ion-item>
+</ion-col>
+
+

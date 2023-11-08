@@ -1,0 +1,28 @@
+<div style="max-width: 250px; width: 250; margin: 0; padding: 0;" color="dark">
+  <ion-list lines="none" color="dark" class="custom-list">
+    <ion-item color="dark" [routerLink]="['/home']">
+      <ion-icon name="home" slot="start"></ion-icon>
+      Inicio
+    </ion-item>
+    <ion-item color="dark" [routerLink]="['/random', 'random']" >
+      <ion-icon name="bookmark" slot="start"></ion-icon>
+      Aleatorio
+    </ion-item>
+    <ion-item color="dark" [routerLink]="['/random', 'fecha']">
+      <ion-icon name="albums" slot="start"></ion-icon>
+      Mas nuevos
+    </ion-item>
+    <ion-item color="dark" [routerLink]="['/random', 'fechaAntiguo']">
+      <ion-icon name="document" slot="start" ></ion-icon>
+      Mas antiguos
+    </ion-item>  
+    <ion-item color="dark" [routerLink]="['/random', 'cuatro']">
+      <ion-icon name="document" slot="start" ></ion-icon>
+      For 4
+    </ion-item>
+    <ion-item color="dark" [routerLink]="['/video-create']">
+      <ion-icon name="paper-plane" slot="start"></ion-icon>
+      Subir video
+    </ion-item>
+  </ion-list>
+</div>
