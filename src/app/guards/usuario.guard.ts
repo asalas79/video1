@@ -10,7 +10,8 @@ export class UsuarioGuard implements CanLoad {
 
   constructor( private usuarioService: UsuarioService) {}
 
-  canLoad(): Observable<boolean> | Promise<boolean> | boolean {
+  canLoad(): Observable<boolean> | Promise<boolean> | boolean {    
+    console.log('esta pasando guarda');
     return this.usuarioService.validaToken();
   }  
   

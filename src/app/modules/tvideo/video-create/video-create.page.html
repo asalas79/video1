@@ -7,6 +7,9 @@
 <ion-content>
   <ion-grid>
     <ion-row>
+      <ion-col class="ion-hide-lg-down fixed-column" size-lg="2" >
+        <app-menuizquierda ></app-menuizquierda>
+      </ion-col>
       <ion-col class="fixed-column" size-lg="5" size-md="12" size-xs="12" size-sm="12">
         <form [formGroup]="uploadForm" (ngSubmit)="submitForm()">
           <ion-item>
@@ -27,70 +30,52 @@
           <ion-item>
             <ion-label position="floating">Categoría</ion-label>
             <ion-select formControlName="category" required>
-              <ion-select-option value="Categoria1">Categoría 1</ion-select-option>
-              <ion-select-option value="Categoria2">Categoría 2</ion-select-option>
+              <ion-select-option value="general">General</ion-select-option>
+              <ion-select-option value="besos">be</ion-select-option>
+              <ion-select-option value="cuatro">cua</ion-select-option>
+              <ion-select-option value="chupada">chu</ion-select-option>
+              <ion-select-option value="lamida">lam</ion-select-option>
+              <ion-select-option value="lesbi">les</ion-select-option>              
+              <ion-select-option value="encima">enc</ion-select-option>              
+              <ion-select-option value="acostada">acos</ion-select-option>
+              <ion-select-option value="doble">doble</ion-select-option>
+              <ion-select-option value="tetas">te</ion-select-option>
+              <ion-select-option value="vestido">ves</ion-select-option>
               <!-- Agrega más categorías según sea necesario -->
             </ion-select>
           </ion-item>
-
-          <ion-item>
-            <ion-label><strong>Video</strong></ion-label>
-            <ion-input type="file" (change)="onFileSelected($event)" accept="video/*"></ion-input>
-          </ion-item>
-          <br><br>
-          <ion-item>
-            <ion-label>Imagen 1</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 0)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 2</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 1)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 3</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 2)" accept="image/*"></ion-input>
-          </ion-item>
-
           
-          <ion-item>
-            <ion-label>Imagen 4</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 3)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 5</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 4)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 6</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 5)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 7</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 6)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 8</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 7)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 9</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 8)" accept="image/*"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Imagen 10</ion-label>
-            <ion-input type="file" (change)="onImageSelected($event, 9)" accept="image/*"></ion-input>
+          <br><br>
+          <ion-item>            
+            <input type="file" (change)="onFileSelected($event)" accept="video/*" id="videoInput" class="file-input file-link" required>
+            <ion-icon name="videocam" (click)="openFileInput('videoInput')"></ion-icon>
+            <label for="videoInput" class="file-label file-link">{{ uploadForm.get('video')?.value?.name || 'Seleccionar archivo' }}</label>
           </ion-item>
           <br><br>
-
-          <ion-button expand="full" type="submit">Subir</ion-button>
+          <ion-title>Imagenes 500 x 300 </ion-title>
+          <br><br>
+          <ion-item *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+            <ion-thumbnail slot="start" style="cursor: pointer; width: 60px; height: 60px; overflow: hidden;" (click)="openFileInput('imageInput' + i)">
+              <img *ngIf="!imagePreviews[i]" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" alt="Placeholder" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img *ngIf="imagePreviews[i]" [src]="imagePreviews[i]" alt="Thumbnail" style="max-width: 100px; max-height: 80px; object-fit: cover; border-radius: 5px; border: 1px solid #ccc;" />
+            </ion-thumbnail>
+            <ion-label style="cursor: pointer;" (click)="openFileInput('imageInput' + i)">{{ uploadForm.get('images.' + i)?.value?.name || 'Seleccionar archivo' }}</ion-label>
+            <ion-row class="image-upload-row" (click)="openFileInput('imageInput' + i)">
+              <ion-col size="4">
+                <input type="file" (change)="onImageSelected($event, i)" accept="image/*" id="imageInput{{i}}" class="file-input file-link" style="opacity: 0; width: 100%; height: 100%; position: absolute; top: 0; left: 0; cursor: pointer;">
+              </ion-col>
+              <ion-col size="8">
+                <!-- Puedes ajustar la miniatura aquí si es necesario -->
+              </ion-col>
+            </ion-row>
+          </ion-item>
+          
+                    
+          <br><br>
+          
+          <ion-button expand="full" type="submit">
+             <ion-icon name="cloud-upload"></ion-icon> 
+          </ion-button>
         </form>
       </ion-col>
     </ion-row>

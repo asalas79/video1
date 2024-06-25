@@ -14,7 +14,7 @@ const urlimg = environment.urlImagen;
   styleUrls: ['./random.page.scss'],
 })
 export class RandomPage implements OnInit {
-
+  categoria: string = 'Random'; // Declarar la propiedad categoria aquí
   tipo: string = '';
   
   videos: Videos[] = [];
@@ -24,17 +24,23 @@ export class RandomPage implements OnInit {
   constructor( private videoService: VideoService,
                private router: Router,
                private ui:UiServiceService,
-               private route: ActivatedRoute) { }
+               private route: ActivatedRoute,
+              ) { }
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-      this.tipo = params['tipo'];      
+      this.tipo = params['tipo'];   
+      const parametro1 = params['NombreCategoria'];
+      this.categoria = parametro1 ? parametro1.split('-').join(' ').toUpperCase() : '';      
+      console.log('info:',this.categoria)   ;
     });
 
     this.urlImagen = urlimg;      
     this.siguientes(null, true);    
   }
+
+  
 
   recargar( event?:any ){
     this.siguientes( event, true);

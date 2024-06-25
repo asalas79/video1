@@ -7,12 +7,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
     canLoad:[ UsuarioGuard ]
-  },
-  {
-    path: '',
-    redirectTo: 'random/random',
-    pathMatch: 'full'
-  },
+  },  
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
@@ -23,7 +18,7 @@ const routes: Routes = [
     canLoad:[ UsuarioGuard ]
   },
   {
-    path: 'random/:tipo',
+    path: 'random/:tipo/:NombreCategoria',
     loadChildren: () => import('./pages/random/random.module').then( m => m.RandomPageModule),
     canLoad:[ UsuarioGuard ]
   },
@@ -37,6 +32,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/tvideo/video-create/video-create.module').then( m => m.VideoCreatePageModule),    
     canLoad:[ UsuarioGuard ]
   },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

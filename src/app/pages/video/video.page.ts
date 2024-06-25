@@ -24,11 +24,17 @@ export class VideoPage implements OnInit {
 
     this.activatedRoute.queryParams.subscribe(params => {
       const encodedVideo = params['video'];
-      if (encodedVideo) {
+      if (encodedVideo) {        
         const decodedVideo = JSON.parse(atob(encodedVideo)); // Decodificar el objeto desde base64
+        console.log(decodedVideo);
         this.video = decodedVideo;
         this.urlvideo  = urlVideo;
         this.urlimagen = urlImagen;   
+
+        //reinicia el video cada vez que se vuelve a llamar
+        if(this.myVideo){
+          this.myVideo.nativeElement.load(); 
+        }
       }
     });
     

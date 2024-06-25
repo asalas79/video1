@@ -45,14 +45,13 @@ export class UiServiceService {
   async spinerLoading( mensaje: string) {
     const loading = await this.loadingController.create({
       message: mensaje
-    });
-
+    });    
     await loading.present();
   }
 
 
-  spinerCerrar(){
-    this.loadingController.dismiss();
+  async spinerCerrar() {
+    await this.loadingController.dismiss();
   }
 
 

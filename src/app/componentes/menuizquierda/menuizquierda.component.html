@@ -1,28 +1,34 @@
 <div style="max-width: 250px; width: 250; margin: 0; padding: 0;" color="dark">
   <ion-list lines="none" color="dark" class="custom-list">
-    <ion-item color="dark" [routerLink]="['/home']">
+    <ion-item color="dark" [routerLink]="['/home']" >
       <ion-icon name="home" slot="start"></ion-icon>
-      Inicio
+      Home
     </ion-item>
-    <ion-item color="dark" [routerLink]="['/random', 'random']" >
+    <ion-item color="dark" [routerLink]="['/random', 'random','videos-aleatorios']" >
       <ion-icon name="bookmark" slot="start"></ion-icon>
       Aleatorio
     </ion-item>
-    <ion-item color="dark" [routerLink]="['/random', 'fecha']">
+    <ion-item color="dark" [routerLink]="['/random', 'fecha','videos-recientes']" >
       <ion-icon name="albums" slot="start"></ion-icon>
       Mas nuevos
     </ion-item>
-    <ion-item color="dark" [routerLink]="['/random', 'fechaAntiguo']">
+    <ion-item color="dark" [routerLink]="['/random', 'fechaAntiguo','videos-viejos']" >
       <ion-icon name="document" slot="start" ></ion-icon>
       Mas antiguos
     </ion-item>  
-    <ion-item color="dark" [routerLink]="['/random', 'cuatro']">
+    <ion-item color="dark" [routerLink]="['/random', 'cuatro','cuatro']" >
       <ion-icon name="document" slot="start" ></ion-icon>
       For 4
     </ion-item>
     <ion-item color="dark" [routerLink]="['/video-create']">
       <ion-icon name="paper-plane" slot="start"></ion-icon>
       Subir video
-    </ion-item>
-  </ion-list>
+    </ion-item>    
+    <ion-item  lines="none" (click)="logout()" class="puntero custom-list" color="dark">
+      <ion-icon slot="start" name="person-circle-outline" color="danger"></ion-icon>
+      <ion-label>Salir</ion-label>
+    </ion-item> 
+    
+  </ion-list>  
 </div>
+<br><br>

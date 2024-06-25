@@ -52,7 +52,7 @@ export class AleatorioComponent implements OnInit {
   }
 
   verVideo( video:any ){    
-    console.log(video);
+    //console.log(video);
     const encodedVideo = btoa(JSON.stringify(video)); // Codificar el objeto en base64
     this.router.navigate(['/video'], { queryParams: { video: encodedVideo } });
 

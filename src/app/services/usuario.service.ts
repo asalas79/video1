@@ -80,5 +80,13 @@ export class UsuarioService {
     });
   }
 
+  logout(){
+    this.token   = '';
+    this.usuario = '';
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/', { animated: true, replaceUrl: true });
+    this.navCtrl.navigateRoot('/login', { animated: true, replaceUrl: true });
+  }
+
 
 }

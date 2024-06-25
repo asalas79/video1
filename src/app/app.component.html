@@ -1,12 +1,54 @@
-<ion-app>
-
+<ion-app >
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar color="dark">
+        <ion-buttons slot="end">
+          <ion-button (click)="closeMenu()">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </ion-buttons>
         <ion-title>Menu Content</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding" color="dark">This is the menu content.</ion-content>
+
+    <ion-content  color="dark" >
+      <ion-list lines="none" class="custom-list">
+        <ion-item routerLink="/home" color="dark" [routerLink]="['/home']">
+          <ion-icon name="home" slot="start"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-item>
+
+        <ion-item color="dark" [routerLink]="['/random', 'random']" >
+          <ion-icon name="bookmark" slot="start"></ion-icon>
+          Aleatorio
+        </ion-item>
+        <ion-item color="dark" [routerLink]="['/random', 'fecha']">
+          <ion-icon name="albums" slot="start"></ion-icon>
+          Mas nuevos
+        </ion-item>
+        <ion-item color="dark" [routerLink]="['/random', 'fechaAntiguo']">
+          <ion-icon name="document" slot="start" ></ion-icon>
+          Mas antiguos
+        </ion-item>  
+        <ion-item color="dark" [routerLink]="['/random', 'cuatro']">
+          <ion-icon name="document" slot="start" ></ion-icon>
+          For 4
+        </ion-item>
+        <ion-item color="dark" [routerLink]="['/video-create']">
+          <ion-icon name="paper-plane" slot="start"></ion-icon>
+          Subir video
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+    <ion-footer >
+      <ion-toolbar color="dark">
+        <ion-item  (click)="logout()" lines="none"  class="puntero custom-list" color="dark">
+          <ion-icon slot="start" name="person-circle-outline" color="danger"></ion-icon>
+          <ion-label>Salir</ion-label>
+        </ion-item> 
+      </ion-toolbar>
+    </ion-footer>
   </ion-menu>
 
   <ion-router-outlet id="main"></ion-router-outlet>

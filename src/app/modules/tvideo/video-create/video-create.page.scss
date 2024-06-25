@@ -1,0 +1,30 @@
+.file-input {
+    display: none; /* Oculta el campo de entrada de archivo */
+    color: brown;
+  }
+
+  .file-label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .file-link {
+    cursor: pointer;
+    color: rgb(43, 42, 42); /* Opcional: Cambia el color del texto para que se vea como un enlace */
+    text-decoration: none; /* Opcional: Agrega subrayado para que se vea como un enlace */
+  }
+
+  .image-thumbnail {
+    max-width: 100px;
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .image-upload-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre la etiqueta y la miniatura */
+  }

@@ -9,9 +9,11 @@ import { VideoCreatePageRoutingModule } from './video-create-routing.module';
 import { VideoCreatePage } from './video-create.page';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentesModule } from 'src/app/componentes/componentes.module';
 
 @NgModule({
   imports: [
+    ComponentesModule,
     CommonModule,
     FormsModule,
     IonicModule,

@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
     const valido = await this.usuarioService.login ( this.loginUser.email, this.loginUser.password);   
     this.ui.spinerCerrar(); 
     if( valido ){
-      this.navCtrl.navigateRoot( '/random/random',{ animated: true } );          
+      this.navCtrl.navigateRoot( '/random/random/videos-aleatorios',{ animated: true } );          
     }else{
       this.ui.alertaInformativo('Usuario o contraseña no son correctos!');
     }

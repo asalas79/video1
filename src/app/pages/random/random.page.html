@@ -1,4 +1,5 @@
-<app-header titulo="Random"></app-header>
+<app-header [titulo]="categoria"></app-header>
+
 
 <ion-content [fullscreen]="true" color="dark">
 
@@ -7,16 +8,16 @@
   </ion-refresher>
   
   <ion-grid> 
-    <ion-row>     
+    <ion-row>      
       <ion-col class="ion-hide-lg-down fixed-column" size-lg="2" >
-        <app-menuizquierda ></app-menuizquierda>
+        <app-menuizquierda></app-menuizquierda>
       </ion-col>
       <ion-col size-lg="10" size-md="12" size-xs="12" size-sm="12">
         <ion-row >
           <ion-col class="clicable-element" size-md="4" size-xs="12" size-sm="4" size-lg="2.4" *ngFor="let video of videos" (click)="verVideo(video)">
-            <ion-item lines="none" class="border-radius" >
+            <div class="border-radius" >
               <ion-img [src]="urlImagen + video.imagen1"></ion-img>
-            </ion-item>
+            </div>
             <ion-item lines="none"  color="dark">
               <h6>1Titulo de coches y algo mas para todos</h6>
             </ion-item>
